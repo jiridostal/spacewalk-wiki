@@ -9,18 +9,11 @@ In the "Poor Man's Dev Workstation" you have to run an ant command every time yo
 In either case python and perl code can be changed by running 'sudo make install' and restarting httpd. There are some common prerequisites followed by the setup instructions for both setups.
 
 
-# Prerequisites
+# Workstation setup
 
-### Spacewalk Runtime Environment
+## Prerequisites
 
-In order to setup the  Spacewalk development environment, you first need to have a running version of Spacewalk installed following the instructions in [Spacewalk Installation Instructions](HowToInstall).
-
-### Git
-
-To setup the sources follow the instructions in [Install Git](GitGuide) and [clone the Spacewalk repository](GitGuide).
-
-
-# Web Application
+Following steps will require to have [IntelliJ Idea](https://www.jetbrains.com/idea/) installed and [Spacewalk git repository](https://github.com/spacewalkproject/spacewalk) cloned. To setup the sources follow the instructions in [Install Git](GitGuide) and [clone the Spacewalk repository](GitGuide).
 
 ## Poor Man's Dev Workstation
 

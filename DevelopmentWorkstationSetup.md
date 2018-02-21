@@ -30,14 +30,16 @@ In order to setup development workstation, you need to have some dependencies pr
 
      * `mkdir -p ~/workspace/spacewalk/root/`
 
-2. Install all required dependencies to that folder. Get them from spacewalk-java.spec
-
+2. Install all required dependencies to that folder from spacewalk nightly repo. Get them from spacewalk-java.spec
+     * `dnf copr enable @spacewalkproject/nightly`
      * `cd ~/workspace/spacewalk/java`
-     * `dnf builddep spacewalk-java.spec --installroot=~/workspace/spacewalk/root/ --releasever=27`
+     * `dnf builddep spacewalk-java.spec --installroot=/home/jdostal/workspace/spacewalk/root/ --releasever=27`
     
 3. Set JAVA_LIBDIR variable in `~/.java/java.conf` to point to java libary in your install-root
 
-     * `echo "JAVA_LIBDIR=~/workspace/spacewalk/root" >> ~/.java/java.conf`
+     * `mkdir -p ~/.java/`
+     *  Don't forget to adjust below username
+     * `echo "JAVA_LIBDIR=/home/user/workspace/spacewalk/root/usr/share/java/" >> ~/.java/java.conf`
 
 4. Link required jars and try initial compilation
    

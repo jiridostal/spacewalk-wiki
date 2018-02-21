@@ -44,6 +44,20 @@ In order to setup development workstation, you need to have some dependencies pr
      * `cd ~/workspace/spacewalk/java`
      * `ant init-install compile`
 
+## Setup IDE
+
+Let's see how to configure IDEA to work with our source files. 
+
+1. On welcome screen click "Import Project"
+2. Navigate to `~/workspace/spacewalk/java`
+3. Select "Create project from existing sources"
+4. Set "Project name" to whatever you want, just check that the "Project location" is correct
+5. Now you are asked to select which roots we'd like to manage. Unmark all except `~/workspace/spacewalk/java/code/src`
+6. On next page, just click next
+7. Next
+8. Now set JDK home path to java you'd like to use. (i.e. java-1.8.0-openjdk)
+9. Let it search for frameworks and check "Web" and "Struts" have been found. Keep them marked
+10. Finish
 
 ## Poor Man's Dev Workstation
 

@@ -15,6 +15,36 @@ In either case python and perl code can be changed by running 'sudo make install
 
 Following steps will require to have [IntelliJ Idea](https://www.jetbrains.com/idea/) installed and [Spacewalk git repository](https://github.com/spacewalkproject/spacewalk) cloned. To setup the sources follow the instructions in [Install Git](GitGuide) and [clone the Spacewalk repository](GitGuide).
 
+## Workspace directory
+
+Let's define where we'd like to keep our IDE project. Create a directory and link java source files in it. `~/spacewalk` is root of our git repository and `~/workspace` will be root of IDE projects.
+
+* `mkdir -p ~/workspace/spacewalk/`
+* `ln -s ~/spacewalk/java/ ~/workspace/spacewalk/java`
+
+## Get dependencies
+
+In order to setup development workstation, you need to have some dependencies prepared. You can either install them locally or keep them in different install root. 
+
+1. Create a folder where install-root will be created
+
+     * `mkdir -p ~/workspace/spacewalk/root/`
+
+2. Install all required dependencies to that folder. Get them from spacewalk-java.spec
+
+     * `cd ~/workspace/spacewalk/java`
+     * `dnf builddep spacewalk-java.spec --installroot=~/workspace/spacewalk/root/ --releasever=27`
+    
+3. Set JAVA_LIBDIR variable in `~/.java/java.conf` to point to java libary in your install-root
+
+     * `echo "JAVA_LIBDIR=~/workspace/spacewalk/root" >> ~/.java/java.conf`
+
+4. Link required jars and try initial compilation
+   
+     * `cd ~/workspace/spacewalk/java`
+     * `ant init-install compile`
+
+
 ## Poor Man's Dev Workstation
 
 Use on any OS that runs tomcat 7, or if you just prefer a simpler and less fragile but slower development environment. 

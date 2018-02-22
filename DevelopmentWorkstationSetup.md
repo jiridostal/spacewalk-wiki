@@ -46,7 +46,7 @@ In order to setup development workstation, you need to have some dependencies pr
      * `cd ~/workspace/spacewalk/java`
      * `ant init-install compile`
 
-## Setup IDE
+## Setup IDE to work with Java
 
 Let's see how to configure IDEA to work with our source files. 
 
@@ -60,6 +60,34 @@ Let's see how to configure IDEA to work with our source files.
 8. Now set JDK home path to java you'd like to use. (i.e. java-1.8.0-openjdk)
 9. Let it search for frameworks and check "Web" and "Struts" have been found. Keep them marked
 10. Finish
+
+## Setup IDE to work with JSP
+
+JSPs are compiled different way than Java source so it will require to do some additional configuration. As JSPs are compiled, it's not enough to transfer files to correct location on server - this will require editing Tomcat configuration. This guide will provide information on how to deploy, compare or sync JSPs between Spacewalk server and development workstation. First, let's start with setting up Tomcat on Spacewalk.
+
+1. Connect to Spacewalk server
+2. Edit **/etc/tomcat\*/web.xml**
+3. Set development to *true* in servlet section *jsp*. Set it as it looks as following
+```xml
+   <servlet>
+        <servlet-name>jsp</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+        <init-param>
+            <param-name>fork</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>xpoweredBy</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>development</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+```
 
 ## Poor Man's Dev Workstation
 

@@ -1,12 +1,12 @@
 # Intro
  
-The below instructions are how to set up the Spacewalk Development Environment. There are two versions of this setup. I have been unable to get the full workstation working properly on operating systems running tomcat 7. It refuses to compile the jsps at run time for reasons I don't understand. As such, newer operating systems like Fedora 19 and 20 should use the "Poor Man's Dev Workstation" below. Older operating systems like RHEL 5 and 6 can use the "Dev Workstation" instructions. There are positives and negatives to both.
+The below instructions are how to set up the Spacewalk Development Environment. In this guide Fedora 27 will be used as a development workstartion, whereas IntelliJ Idea will be our IDE. Switching to other IDE is generally not a problem. 
 
-With the regular "Dev Workstation" it is possible to see the difference in jsps you have just edited by simply refreshing the page. It is also possible to configure eclipse to auto-build class files when you save and have tomcat auto-reload when it detects the class files have changed. This leads to a very smooth and fast development environment when it's all working correctly. However, it tends to be very fragile and rely on specific versions of jar files that are named exactly the correct thing at exactly the correct location on the filesystem.
+We'll start by setting up git repository followed by building project structure including required dependencies. These depedencies might be installed locally or using different install root, if someone doesn't want to flood system with single-purpose rpms.
 
-In the "Poor Man's Dev Workstation" you have to run an ant command every time you want your changes to take effect, which can take several minutes. However, it tends to be much less fragile and actually works with tomcat 7, which is good.
+After completing steps in this guide, you'll be able to comfortably manage, modify and compile Java for Spacewalk. Furthermore, you'll be able to debug, quick build and hotswap code running in Tomcat remotely/locally, depending where your Spacewalk instance will be installed. 
 
-In either case python and perl code can be changed by running 'sudo make install' and restarting httpd. There are some common prerequisites followed by the setup instructions for both setups.
+Let's get started!
 
 
 # Workstation setup

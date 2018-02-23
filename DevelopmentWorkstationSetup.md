@@ -61,6 +61,51 @@ Let's see how to configure IDEA to work with our source files.
 9. Let it search for frameworks and check "Web" and "Struts" have been found. Keep them marked
 10. Finish
 
+## Setup Tomcat for Java Debugging
+
+Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
+
+In order to enable debugging code running in Tomcat, you need to add options to **/etc/sysconfig/tomcat\***
+
+1. Add `CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n` at the end of file
+2. Note the *Port* value from above command, you'll need it
+3. Restart Tomcat
+
+## Setup Taskomatic for Java Debugging
+
+Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
+
+Taskomatic is running in a wrapper, which will require some additional configuration to setup debugging. Navigate to **/usr/share/rhn/config-defaults/rhn_taskomatic_daemon.conf**
+
+1. Find lines starting with `wrapper.java.additional.`. Note the highest number that follows. (Usually 2)
+2. Add following lines at the end of file and follow the numbering mentioned above (here, we'll pick 3, 4)
+```
+wrapper.java.additional.3=-Xdebug 
+wrapper.java.additional.4=-Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n
+
+wrapper.java.detect_debug_jvm=TRUE
+```
+
+3. Note the *Port* value from above command, you'll need it
+4. Restart Taskomatic
+
+## Enable debugging using a script
+
+If you want to set it up as fast as possible, just check script in `spacewalk/scripts/` called `setup-debugging.sh`.
+
+From help:
+```
+Simple script for setting up remote debugging for Tomcat (port 8000) and Taskomatic (port 8001)
+Usage:
+-u -- Username
+-s -- Server
+-h -- shows this help
+```
+
+Example run:
+
+`./setup-debugging -u root -s http://localhost`
+
 ## Setup Tomcat to recompile JSP
 
 JSPs are compiled different way than Java source so it will require to do some additional configuration. As JSPs are compiled, it's not enough to transfer files to correct location on server - this will require editing Tomcat configuration. This guide will provide information on how to deploy, compare or sync JSPs between Spacewalk server and development workstation. First, let's start with setting up Tomcat on Spacewalk.

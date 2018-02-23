@@ -48,7 +48,8 @@ In order to setup development workstation, you need to have some dependencies pr
      * `cd ~/workspace/spacewalk/java`
      * `ant init-install compile`
 
-## Setup IDE to work with Java
+## IDEA Setup
+### Setup IDEA to work with Java
 
 Let's see how to configure IDEA to work with our source files. 
 
@@ -63,7 +64,11 @@ Let's see how to configure IDEA to work with our source files.
 9. Let it search for frameworks and check *"Web"* and *"Struts"* have been found. Keep them marked
 10. Finish
 
-## Setup IDEA to debug and hot-swap Spacewalk code
+### Setup IDEA to work with Taskomatic
+
+Taskomatic code is part of spacewalk-java package, so it's the same except [Setup IDEA to debug and hot-swap Spacewalk code](setup-idea-to-debug-and-hot-swap-spacewalk-code)
+
+### Setup IDEA to debug and hot-swap Spacewalk code
 
 **Important:** Please make sure you have completed steps [Setup Tomcat for Java Debugging](setup-tomcat-for-java-debugging) or [Setup Taskomatic for Java Debugging](setup-taskomatic-for-java-debugging), depending what code you'd like to debug.
 
@@ -77,8 +82,22 @@ With attached debugger, you can rebuild your project and changes will be propaga
 
 **Note:** Versions of java source must be the same on both server and workstation. If not debugging may not work or may show incorrect state. 
 
+### Setup IDEA to deploy JSP
 
-## Setup Tomcat for Java Debugging
+**Important:** Please complete steps from **Setup Tomcat to recompile JSP**, otherwise Tomcat won't trigger recompilation.
+
+In Idea:
+
+1. Navigate to **Tools->Deployment->Configuration**
+2. Click green plus, set desired deployment name and select **SFTP** for type
+3. Fill in SFTP host, Port, Root path and credentials. It may look as follows
+![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy.png)
+4. Switch to tab Mapping, where we'll map sour source files to server JSPs. Please follow below image:
+![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy2.png)
+5. Done. Now navigate to **Tools->Deployment** and check what options you've achieved. :-)
+
+## Tomcat setup
+### Setup Tomcat for Java Debugging
 
 Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
 
@@ -88,7 +107,7 @@ In order to enable debugging code running in Tomcat, you need to add options to 
 2. Note the *Port* value from above command, you'll need it
 3. Restart Tomcat
 
-## Setup Taskomatic for Java Debugging
+### Setup Taskomatic for Java Debugging
 
 Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
 
@@ -106,7 +125,9 @@ wrapper.java.detect_debug_jvm=TRUE
 3. Note the *Port* value from above command, you'll need it
 4. Restart Taskomatic
 
-## Enable debugging using a script
+
+
+### Enable debugging using a script
 
 If you want to set it up as fast as possible, just check script in `spacewalk/scripts/` called `setup-debugging.sh`.
 
@@ -123,7 +144,7 @@ Example run:
 
 `./setup-debugging -u root -s http://localhost`
 
-## Setup Tomcat to recompile JSP
+### Setup Tomcat to recompile JSP
 
 JSPs are compiled different way than Java source so it will require to do some additional configuration. As JSPs are compiled, it's not enough to transfer files to correct location on server - this will require editing Tomcat configuration. This guide will provide information on how to deploy, compare or sync JSPs between Spacewalk server and development workstation. First, let's start with setting up Tomcat on Spacewalk.
 
@@ -171,19 +192,7 @@ and
 5. Do this for desired JSP files, you can even comment out whole section 
 6. Restart Tomcat
 
-## Setup IDE to deploy JSP
 
-**Important:** Please complete steps from **Setup Tomcat to recompile JSP**, otherwise Tomcat won't trigger recompilation.
-
-In Idea:
-
-1. Navigate to **Tools->Deployment->Configuration**
-2. Click green plus, set desired deployment name and select **SFTP** for type
-3. Fill in SFTP host, Port, Root path and credentials. It may look as follows
-![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy.png)
-4. Switch to tab Mapping, where we'll map sour source files to server JSPs. Please follow below image:
-![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy2.png)
-5. Done. Now navigate to **Tools->Deployment** and check what options you've achieved. :-)
 
 ## Uninstallation
 

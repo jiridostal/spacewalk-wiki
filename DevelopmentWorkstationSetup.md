@@ -116,7 +116,12 @@ and
 In Idea:
 
 1. Navigate to **Tools->Deployment->Configuration**
-
+2. Click green plus, set desired deployment name and select **SFTP** for type
+3. Fill in SFTP host, Port, Root path and credentials. It may look as follows
+![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy.png)
+4. Switch to tab Mapping, where we'll map sour source files to server JSPs. Please follow below image:
+![JSP Deployment screenshot](https://github.com/spacewalkproject/spacewalk-wiki/blob/master/images/jspdeploy2.png)
+5. Done. Now navigate to **Tools->Deployment** and check what options you've achieved. :-)
 
 ## Poor Man's Dev Workstation
 

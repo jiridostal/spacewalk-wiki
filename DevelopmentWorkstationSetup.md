@@ -11,18 +11,20 @@ Let's get started!
 
 # Workstation setup
 
-## Prerequisites
+## Dependencies and Build
+
+### Prerequisites
 
 Following steps will require to have [IntelliJ Idea](https://www.jetbrains.com/idea/) installed and [Spacewalk git repository](https://github.com/spacewalkproject/spacewalk) cloned. To setup the sources follow the instructions in [Install Git](GitGuide) and [clone the Spacewalk repository](GitGuide).
 
-## Workspace directory
+### Preparing workspace directory
 
-Let's define where we'd like to keep our IDE project. Create a directory and link java source files in it. `~/spacewalk` is root of our git repository and `~/workspace` will be root of IDE projects.
+Let's define where we'd like to keep our IDE project. Create a directory and link java source files in it. **~/spacewalk** is root of our git repository and **~/workspace** will be root of IDE projects.
 
 * `mkdir -p ~/workspace/spacewalk/`
 * `ln -s ~/spacewalk/java/ ~/workspace/spacewalk/java`
 
-## Get dependencies
+### Get dependencies
 
 In order to setup development workstation, you need to have some dependencies prepared. You can either install them locally or keep them in different install root. 
 
@@ -30,12 +32,12 @@ In order to setup development workstation, you need to have some dependencies pr
 
      * `mkdir -p ~/workspace/spacewalk/root/`
 
-2. Install all required dependencies to that folder from spacewalk nightly repo. Get them from spacewalk-java.spec
+2. Install all required dependencies to that folder from spacewalk nightly repo. Get them from **spacewalk-java.spec**
      * `dnf copr enable @spacewalkproject/nightly`
      * `cd ~/workspace/spacewalk/java`
      * `dnf builddep spacewalk-java.spec --installroot=/home/jdostal/workspace/spacewalk/root/ --releasever=27`
     
-3. Set JAVA_LIBDIR variable in `~/.java/java.conf` to point to java libary in your install-root
+3. Set *JAVA_LIBDIR* variable in `~/.java/java.conf` to point to java libary in your install-root
 
      * `mkdir -p ~/.java/`
      *  Don't forget to adjust below username
@@ -51,14 +53,14 @@ In order to setup development workstation, you need to have some dependencies pr
 Let's see how to configure IDEA to work with our source files. 
 
 1. On welcome screen click "Import Project"
-2. Navigate to `~/workspace/spacewalk/java`
-3. Select "Create project from existing sources"
-4. Set "Project name" to whatever you want, just check that the "Project location" is correct
-5. Now you are asked to select which roots we'd like to manage. Unmark all except `~/workspace/spacewalk/java/code/src`
+2. Navigate to **~/workspace/spacewalk/java**
+3. Select *"Create project from existing sources"*
+4. Set *"Project name"* to whatever you want, just check that the *"Project location"* is correct
+5. Now you are asked to select which roots we'd like to manage. Unmark all except **~/workspace/spacewalk/java/code/src**
 6. On next page, just click next
 7. Next
 8. Now set JDK home path to java you'd like to use. (i.e. java-1.8.0-openjdk)
-9. Let it search for frameworks and check "Web" and "Struts" have been found. Keep them marked
+9. Let it search for frameworks and check *"Web"* and *"Struts"* have been found. Keep them marked
 10. Finish
 
 ## Setup IDEA to debug and hot-swap Spacewalk code

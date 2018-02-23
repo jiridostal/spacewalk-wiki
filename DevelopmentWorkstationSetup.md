@@ -61,7 +61,7 @@ Let's see how to configure IDEA to work with our source files.
 9. Let it search for frameworks and check "Web" and "Struts" have been found. Keep them marked
 10. Finish
 
-## Setup IDE to work with JSP
+## Setup Tomcat to recompile JSP
 
 JSPs are compiled different way than Java source so it will require to do some additional configuration. As JSPs are compiled, it's not enough to transfer files to correct location on server - this will require editing Tomcat configuration. This guide will provide information on how to deploy, compare or sync JSPs between Spacewalk server and development workstation. First, let's start with setting up Tomcat on Spacewalk.
 
@@ -88,6 +88,35 @@ JSPs are compiled different way than Java source so it will require to do some a
     </servlet>
 
 ```
+
+4. If you want to edit **WEB-INF/pages/common/login.jsp** for example, comment out following lines in **/var/lib/tomcat\*/webapps/rhn/WEB-INF/web.xml**
+
+```xml
+ <servlet-mapping>
+        <servlet-name>org.apache.jsp.WEB_002dINF.pages.common.login_jsp</servlet-name>
+        <url-pattern>/WEB-INF/pages/common/login.jsp</url-pattern>
+ </servlet-mapping>
+```
+and
+
+```xml
+ <servlet>
+        <servlet-name>org.apache.jsp.WEB_002dINF.pages.common.login_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.WEB_002dINF.pages.common.login_jsp</servlet-class>
+ </servlet>
+```
+
+5. Do this for desired JSP files, you can even comment out whole section 
+6. Restart Tomcat
+
+## Setup IDE to deploy JSP
+
+**Important:** Please complete steps from **Setup Tomcat to recompile JSP**, otherwise Tomcat won't trigger recompilation.
+
+In Idea:
+
+1. Navigate to **Tools->Deployment->Configuration**
+
 
 ## Poor Man's Dev Workstation
 

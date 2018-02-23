@@ -70,7 +70,7 @@ Taskomatic code is part of spacewalk-java package, so it's the same except [Setu
 
 ### Setup IDEA to debug and hot-swap Spacewalk code
 
-**Important:** Please make sure you have completed steps [Setup Tomcat for Java Debugging](setup-tomcat-for-java-debugging) or [Setup Taskomatic for Java Debugging](setup-taskomatic-for-java-debugging), depending what code you'd like to debug.
+**Important:** Please make sure you have completed steps [Setup Tomcat for Java Debugging](#setup-tomcat-for-java-debugging) or [Setup Taskomatic for Java Debugging](#setup-taskomatic-for-java-debugging), depending what code you'd like to debug.
 
 1. Navigate to **Run->Edit Configurations**
 2. On the left, click green plus
@@ -84,7 +84,7 @@ With attached debugger, you can rebuild your project and changes will be propaga
 
 ### Setup IDEA to deploy JSP
 
-**Important:** Please complete steps from **Setup Tomcat to recompile JSP**, otherwise Tomcat won't trigger recompilation.
+**Important:** Please complete steps from [Setup Tomcat to recompile JSP](#setup-tomcat-to-recompile-jsp), otherwise Tomcat won't trigger recompilation.
 
 In Idea:
 
@@ -99,7 +99,7 @@ In Idea:
 ## Tomcat setup
 ### Setup Tomcat for Java Debugging
 
-Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
+Do you hurry? [Enable debugging using a script](#enable-debugging-using-a-script)
 
 In order to enable debugging code running in Tomcat, you need to add options to **/etc/sysconfig/tomcat\***
 
@@ -109,7 +109,7 @@ In order to enable debugging code running in Tomcat, you need to add options to 
 
 ### Setup Taskomatic for Java Debugging
 
-Do you hurry? [Enable debugging using a script](Enable-debugging-using-a-script)
+Do you hurry? [Enable debugging using a script](#enable-debugging-using-a-script)
 
 Taskomatic is running in a wrapper, which will require some additional configuration to setup debugging. Navigate to **/usr/share/rhn/config-defaults/rhn_taskomatic_daemon.conf**
 
@@ -201,5 +201,9 @@ Simply delete your workspace folder (including possible install root for depende
 
 ## Search Server Setup
 
-If you are going to be updating the search server java code, just follow steps from [Setup IDE to work with Java](setup-ide-to-work-with-java) and point it to **spacewalk/search-server/spacewalk-search**
+If you are going to be updating the search server java code, just follow steps from [Setup IDE to work with Java](#setup-ide-to-work-with-java) and point it to **spacewalk/search-server/spacewalk-search**
+
+# Issues
+
+If you had any issues regarding this guide, please send an e-mail to spacewalk-list@redhat.com. Suggestions are welcomed as well. :-)
 

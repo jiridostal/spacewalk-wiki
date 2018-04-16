@@ -1,5 +1,5 @@
 
-![Alt](images/28release.png?raw=True)
+![Alt](images/28release_new.png?raw=True)
 # __Spacewalk 2.8 Release Notes__
 
 

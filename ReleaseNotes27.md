@@ -36,19 +36,20 @@ If you plan to upgrade from older release, search no more -- the following page 
 
 ## Features & Enhancements in Spacewalk 2.8
 
-  * Spacewalk now supported on Fedora 27 and has been tested on Fedora 28 Beta as well
+  * Spacewalk now installable on Fedora 27 and has been tested on Fedora 28 Beta as well
   * Spacewalk supports Fedora 27 and Fedora 28 clients
   * All packages and repositories are exclusively in https://copr.fedorainfracloud.org/
   * https://spacewalkproject.github.io/ has been completely redesigned
   * Python 2 packages are no longer needed on systems with Python 3 as default
-  * Spacewalk server is now capable of syncing and distribution of Fedora modularity (modules.yaml) files.
+  * Spacewalk server is now capable of syncing and distributing of Fedora modularity (modules.yaml) files.
   * PostgreSQL 10 is now supported
   * Package dwr updated to version 3.0.2 fixing security vulnerabilities
   * It's now possible to manage errata severities via Spacewalk server
+  * Several bugfixes
   * Updated API calls:
     * errata.create/setDetails - add possibility to manage severities
     * system.schedulePackageRemoveByNevra - support removal of packages which are not in database
-    * several bugfixes
+  
 
 The up-to-date API documentation can be found at http://spacewalkproject.github.io/documentation/api/2.8/
 
